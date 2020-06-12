@@ -2,9 +2,12 @@ package main
 
 import (
 	"github.com/tus/tusd/cmd/tusd/cli"
+  "os/signal"
+  "syscall"
 )
 
 func main() {
+	signal.Ignore(syscall.SIGTERM)
 	cli.ParseFlags()
 	cli.PrepareGreeting()
 
